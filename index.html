@@ -22,8 +22,10 @@
     document.documentElement.classList.remove('no-js');
   </script>
 
-  <canvas width="400" height="400" data-level="parabola/test1" data-background="map-back/jupiter.sol" data-gradient-image="back/space">
+  <canvas id="" width="400" height="400">
   </canvas>
+  
+  <script src="readGetLevel.js"></script>
 
   <script src="parabola.js?v=3"></script>
   <script>
@@ -32,9 +34,9 @@
     const canvases = document.querySelectorAll('canvas');
 
     for (const canvas of canvases) {
-      const level = canvas.dataset.level || 'map-easy/easy.sol';
-      const background = canvas.dataset.background || 'map-back/alien.sol';
-      const gradientImage = canvas.dataset.gradientImage || 'back/alien';
+      const level = readLevelObj.levelFile || 'parabola/test1';
+      const background = readLevelObj.backFile || '';
+      const gradientImage = readLevelObj.gradFile || 'back/alien';
 
       const parabola = Parabola({
         canvas: canvas,
